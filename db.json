@@ -1,0 +1,19 @@
+
+
+{
+  "deparmentList": [
+    {
+      "id": 1,
+      "name": "bsc"
+    },
+    {
+      "id": 2,
+      "name": "msc"
+    },
+    {
+      "id": 3,
+      "name": "bba"
+    }
+  ],
+  "employeeFormData": []
+}

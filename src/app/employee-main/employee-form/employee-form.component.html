@@ -1,0 +1,87 @@
+<div class="main">
+    {{this.employeeform.value | json}}
+    <form [formGroup]="employeeform" (ngSubmit)="submitEmployee()">
+
+        <!--first name-->
+        <div class="form-group">
+            <label for="firstname"> firstName</label>
+            <input formControlName="firstname" id="firstname" type="text" class="form-control">
+
+            <div *ngIf="formControl['firstname'].touched && formControl['firstname'].invalid"
+                class="alert alert-danger">
+                <div *ngIf="formControl['firstname'].errors && formControl['firstname'].errors['required']"> firstName
+                    is required.</div>
+
+                <!-- <div *ngIf="formControl[' firstname'].errors && formControl[' firstname'].errors['minlength']"> firstName should be 3 character.</div> -->
+            </div>
+        </div>
+
+        <!--Last name-->
+        <div class="form-group">
+            <label for="Lastname">Lastname</label>
+            <input formControlName="Lastname" id="Lastname" type="text" class="form-control">
+
+            <div *ngIf="formControl['Lastname'].touched && formControl['Lastname'].invalid" class="alert alert-danger">
+                <div *ngIf="formControl['Lastname'].errors && formControl['Lastname'].errors['required']"> LastName
+                    is required.</div>
+
+                <!-- <div *ngIf="formControl[' firstname'].errors && formControl[' firstname'].errors['minlength']"> firstName should be 3 character.</div> -->
+            </div>
+        </div>
+
+
+        <!--emaill-->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input formControlName="email" id="email" type="text" class="form-control">
+            <div *ngIf="formControl['email'].touched && formControl['email'].invalid" class="alert alert-danger">
+                <div *ngIf="formControl['email'].errors && formControl['email'].errors['required']">Email is required.
+                </div>
+                <!-- <div *ngIf="formControl['email'].errors && formControl['email'].errors['email']">Please, enter valid email address.</div> -->
+            </div>
+        </div>
+
+        <!--date picker-->
+        <div class="form-group">
+            <label for="birthday">Birthday:</label>
+            <input formControlName="dob" id="dob" type="date" class="form-control">
+
+            <div *ngIf="formControl['dob'].touched && formControl['dob'].invalid" class="alert alert-danger">
+                <!-- <div *ngIf="formControl['email'].errors && formControl['email'].errors['required']">Email is required.
+                </div> -->
+                <!-- <div *ngIf="formControl['email'].errors && formControl['email'].errors['email']">Please, enter valid email address.</div> -->
+            </div>
+        </div>
+
+        <!--radio button-->
+        <div class="form-group m-4">
+            <label for="gender">gender:</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="gender" id="inlineRadio1"
+                    value="option1">
+                <label class="form-check-label" for="inlineRadio1">male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="gender" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label" for="inlineRadio2">female</label>
+            </div>
+        </div>
+
+
+        <!--List -->
+        <div class="form-group">
+            <label for="department" class="form-label w-25 me-3">department:</label>
+            <div>
+                <select class="form-select" formControlName="department">
+                    <option [value]="0" disabled>Open this select menu</option>
+                    <!-- <option *ngFor="let department of departments" [value]="">  </option> -->
+                </select>
+            </div>
+        </div>
+
+        <button class="btn btn-primary m-4"  type="submit">Submit</button>
+
+        <!-- <button type="button" class="btn btn-success" (click)="resetForm()">Reset</button> -->
+    </form>
+</div>
